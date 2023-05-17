@@ -1,0 +1,126 @@
+<p class="display-1 ps-5 pt-5">EDIT</p>
+
+<table class="container ms-5 me-5">
+  <tr class="border-bottom pb-5">
+    <th class="p-2">_id</th>
+    <th class="p-2">ubezpieczony</th>
+    <th class="p-2">benzyna</th>
+    <th class="p-2">uszkodzony</th>
+    <th class="p-2">naped 4x4</th>
+  </tr>
+
+  {{#each arr}}
+    {{#if edit}}
+      <tr class="border-bottom">
+        <td class="p-2">{{_id}}
+
+        </td>
+        <td class="p-2">
+          <select id="ubezpieczony" name="name_benzyna" aria-label="Default select example" class="form-select">
+            {{#ifop ubezpieczony "tak"}}
+              <option value="tak" selected>Tak</option>
+              <option value="nie">Nie</option>
+              <option value="BRAK DANYCH">BRAK DANYCH</option>
+            {{/ifop}}
+            {{#ifop ubezpieczony "nie"}}
+              <option value="tak">Tak</option>
+              <option value="nie" selected>Nie</option>
+              <option value="BRAK DANYCH">BRAK DANYCH</option>
+            {{/ifop}}
+            {{#ifop ubezpieczony "BRAK DANYCH"}}
+              <option value="tak">Tak</option>
+              <option value="nie">Nie</option>
+              <option value="BRAK DANYCH"selected>BRAK DANYCH</option>
+            {{/ifop}}
+          </select> 
+        </td>
+        <td class="p-2">
+          <select id="benzyna" name="name_benzyna" aria-label="Default select example" class="form-select">
+            {{#ifop benzyna "tak"}}
+              <option value="tak" selected>Tak</option>
+              <option value="nie">Nie</option>
+              <option value="BRAK DANYCH">BRAK DANYCH</option>
+            {{/ifop}}
+            {{#ifop benzyna "nie"}}
+              <option value="tak">Tak</option>
+              <option value="nie" selected>Nie</option>
+              <option value="BRAK DANYCH">BRAK DANYCH</option>
+            {{/ifop}}
+            {{#ifop benzyna "BRAK DANYCH"}}
+              <option value="tak">Tak</option>
+              <option value="nie">Nie</option>
+              <option value="BRAK DANYCH"selected>BRAK DANYCH</option>
+            {{/ifop}}
+          </select> 
+        </td>
+        <td class="p-2">
+          <select id="uszkodzony" name="name_uszkodzony" aria-label="Default select example" class="form-select">
+            {{#ifop uszkodzony "tak"}}
+              <option value="tak" selected>Tak</option>
+              <option value="nie">Nie</option>
+              <option value="BRAK DANYCH">BRAK DANYCH</option>
+            {{/ifop}}
+            {{#ifop uszkodzony "nie"}}
+              <option value="tak">Tak</option>
+              <option value="nie" selected>Nie</option>
+              <option value="BRAK DANYCH">BRAK DANYCH</option>
+            {{/ifop}}
+            {{#ifop uszkodzony "BRAK DANYCH"}}
+              <option value="tak">Tak</option>
+              <option value="nie">Nie</option>
+              <option value="BRAK DANYCH"selected>BRAK DANYCH</option>
+            {{/ifop}}
+          </select> 
+        </td>
+        <td class="p-2">
+          <select id="naped" name="name_naped" aria-label="Default select example" class="form-select">
+            {{#ifop naped "tak"}}
+              <option value="tak" selected>Tak</option>
+              <option value="nie">Nie</option>
+              <option value="BRAK DANYCH">BRAK DANYCH</option>
+            {{/ifop}}
+            {{#ifop naped "nie"}}
+              <option value="tak">Tak</option>
+              <option value="nie" selected>Nie</option>
+              <option value="BRAK DANYCH">BRAK DANYCH</option>
+            {{/ifop}}
+            {{#ifop naped "BRAK DANYCH"}}
+              <option value="tak">Tak</option>
+              <option value="nie">Nie</option>
+              <option value="BRAK DANYCH"selected>BRAK DANYCH</option>
+            {{/ifop}}
+          </select> 
+        </td>
+        <td><button
+            type="button"
+            formaction="/update"
+            onclick='Update("{{_id}}")'
+            class="mt-1 btn btn-danger"
+          >UPDATE</button>
+          <button
+            type="button"
+            formaction="/cancel"
+            onclick='Cancel("{{_id}}")'
+            class="mt-1 btn btn-dark"
+          >CANCEL</button>
+        </td>
+      </tr>
+    {{else}}
+      <tr class="border-bottom">
+        <td class="p-2">{{_id}}</td>
+        <td class="p-2">{{ubezpieczony}}</td>
+        <td class="p-2">{{benzyna}}</td>
+        <td class="p-2">{{uszkodzony}}</td>
+        <td class="p-2">{{naped}}</td>
+        <td><button
+            type="button"
+            formaction="/edit"
+            onclick='Edit("{{_id}}")'
+            class="mt-1 btn btn-dark"
+          >
+            EDIT</button>
+        </td>
+      </tr>
+    {{/if}}
+  {{/each}}
+</table>
